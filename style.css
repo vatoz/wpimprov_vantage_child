@@ -13,3 +13,29 @@ Domain Path: /languages/
 /* =Theme customization starts here
 -------------------------------------------------------------- */
 .single-nav-wrapper,#theme-attribution{display:none;}
+
+
+@media (min-width: 800px) {
+  .wpimprov_day {
+        width: 14%; display:block;float:left;
+    }
+  .wpimprov_week {clear:both}       
+   .wpimprov_large_calendar {
+    font-size:12px;   
+   }
+  .wpimprov_large_calendar h2{
+    font-size:19px;   
+   }                 
+  .wpimprov_large_calendar h3{
+    font-size:16px;   
+   }                
+}
+
+.wpimprov_large_calendar .wpimprov_event {margin-bottom:2em;margin-right:2px;margin-left:2px;}  
+
+
+.wpimprov_past .wpimprov_event{
+              
+ height:10em;float:left;width:49.99%;
+                  overflow:hidden;
+   }
