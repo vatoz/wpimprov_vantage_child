@@ -39,3 +39,32 @@ Domain Path: /languages/
  height:10em;float:left;width:49.99%;
                   overflow:hidden;
    }
+
+.wpimprov_future img{
+              
+max-width:49.99%;
+         /*snad??*/
+   }
+
+.wpimprov_teams  .wpimprov_city {
+	clear:both;
+padding-top:2em;
+
+}
+.wpimprov_teams  .wpimprov_city .wpimprov_team {
+	display:block; width:200px;height:230px;
+
+	float:left;
+margin-right:10px;
+margin-bootm:10px;
+
+}
+
+.wpimprov_teams  .wpimprov_city .wpimprov_team img{
+max-width:200px;max-height:180px;
+}
+
+
+.wpimprov_teams  .wpimprov_city .wpimprov_team {
+/*border:thin solid pink;*/
+}
