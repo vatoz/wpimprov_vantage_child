@@ -16,10 +16,10 @@ Domain Path: /languages/
 
 
 @media (min-width: 800px) {
-  .wpimprov_day {
+   .wpimprov_large_calendar .wpimprov_day {
         width: 14%; display:block;float:left;
     }
-  .wpimprov_week {clear:both}       
+  .wpimprov_large_calendar .wpimprov_week {clear:both}       
    .wpimprov_large_calendar {
     font-size:12px;   
    }
@@ -30,23 +30,31 @@ Domain Path: /languages/
     font-size:16px;   
    }                
    
-    h3 span.dow{display:none;/*den v týdnu nechci v tabulkovém zobrazení*/}
+   .wpimprov_large_calendar h3 span.dow{display:none;/*den v týdnu nechci v tabulkovém zobrazení*/}
     
 }
 
 .wpimprov_large_calendar .wpimprov_event {margin-bottom:2em;margin-right:2px;margin-left:2px;}  
 
 
+@media (min-width: 800px) {
 .wpimprov_past .wpimprov_event{
-              
- height:10em;float:left;width:49.99%;
-                  overflow:hidden;
-   }
+          
+float:left;width:48%;
+                  overflow: hidden;
+   
+}    
+}
+
+.wpimprov_past .wpimprov_event{
+          
+ height:6em;
+background:#F9F9F9;margin:1px 1px 1px 1px;   
+}
 
 .wpimprov_future img{
               
 max-width:49.99%;
-         /*snad??*/
    }
 
 .wpimprov_teams  .wpimprov_city {
