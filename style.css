@@ -29,6 +29,9 @@ Domain Path: /languages/
   .wpimprov_large_calendar h3{
     font-size:16px;   
    }                
+   
+    h3 span.dow{display:none;/*den v týdnu nechci v tabulkovém zobrazení*/}
+    
 }
 
 .wpimprov_large_calendar .wpimprov_event {margin-bottom:2em;margin-right:2px;margin-left:2px;}  
