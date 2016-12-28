@@ -79,3 +79,5 @@ max-width:200px;max-height:180px;
 .wpimprov_teams  .wpimprov_city .wpimprov_team {
 /*border:thin solid pink;*/
 }
+
+.wpimprov_hideempty_calendar img{max-width:300px;max-height:200px;}
