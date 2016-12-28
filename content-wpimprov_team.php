@@ -34,7 +34,7 @@
 			</header><!-- .entry-header -->
 		<?php endif; ?>
 		<div class='teamdata_before'>
-		<?
+		<?php
 		 $meta = get_post_meta( get_the_ID() );
         if(isset($meta['wpimprov-team-fb'])){
             ?><?php echo __('Facebook','wpimprov') ?>: <a href="<?php  echo esc_url("https://facebook.com/" .$meta['wpimprov-team-fb'][0]);  ?>"><?php  echo esc_html("https://facebook.com/" .$meta['wpimprov-team-fb'][0]);  ?></a><br><?php  
