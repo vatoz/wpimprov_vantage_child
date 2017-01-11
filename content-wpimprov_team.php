@@ -33,7 +33,10 @@
 
 			</header><!-- .entry-header -->
 		<?php endif; ?>
-		<div class='teamdata_before'>
+		
+		<div class="entry-content">
+			<?php the_content(); ?>
+                    <div class='teamdata_before'>
 		<?php
 		 $meta = get_post_meta( get_the_ID() );
         if(isset($meta['wpimprov-team-fb'])){
@@ -48,8 +51,7 @@
         }
 		?>
 		</div>
-		<div class="entry-content">
-			<?php the_content(); ?>
+                    
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'vantage' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->
 		<div class='teamdata_after'>
