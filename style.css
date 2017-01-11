@@ -79,3 +79,18 @@ max-width:200px;max-height:180px;
 .wpimprov_teams  .wpimprov_city .wpimprov_team {
 /*border:thin solid pink;*/
 }
+article.wpimprov_team .entry-thumbnail{
+float:left;max-width:48%;
+border:thin solid red;
+
+}
+article.wpimprov_team .entry-content{float:right;}
+.teamdata_before{
+clean:none;
+}
+.teamdata_after h1{
+/*font-size:300px;*/
+}
+
+article.wpimprov_team .entry-header{clean:none;}
+
