@@ -100,13 +100,14 @@ clean:none;
 
 #team_future, #team_past{
 font-size:150%;
-
+padding-top:40px;
 
 }
 #team_past,#no_past{clean:left;}
 #no_future,#no_past{
 font-size:120%;
 padding-top:40px;
+
 }
 
 article.wpimprov_team .entry-header{clean:none;}
