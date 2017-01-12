@@ -5,7 +5,10 @@
  * @package vantage
  * @since vantage 1.0
  * @license GPL 2.0
+ * 
+ * 
  */
+$meta = get_post_meta( get_the_ID() );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
@@ -30,15 +33,12 @@
 						<?php vantage_posted_on(); ?>
 					</div><!-- .entry-meta -->
 				<?php endif; ?>
-
-			</header><!-- .entry-header -->
-		<?php endif; ?>
-		
-		<div class="entry-content">
+                                        
+                                        
+                                        
 			<?php the_content(); ?>
-                    <div class='teamdata_before'>
-		<?php
-		 $meta = get_post_meta( get_the_ID() );
+                <?php
+		 
         if(isset($meta['wpimprov-team-fb'])){
             ?><?php echo __('Facebook','wpimprov') ?>: <a href="<?php  echo esc_url("https://facebook.com/" .$meta['wpimprov-team-fb'][0]);  ?>"><?php  echo esc_html("https://facebook.com/" .$meta['wpimprov-team-fb'][0]);  ?></a><br><?php  
         }
@@ -50,11 +50,11 @@
             ?><?php echo __('City','wpimprov') ?>: <?php    echo esc_html($meta['wpimprov-team-city'][0]);  ?><br><?php  
         }
 		?>
-		</div>
-                    
-			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'vantage' ), 'after' => '</div>' ) ); ?>
-		</div><!-- .entry-content -->
-		<div class='teamdata_after'>
+
+			</header><!-- .entry-header -->
+		<?php endif; ?>
+		
+		  <div class='teamdata_after'>
 		<?php 
 		 if(function_exists("wpimprov_team_calendar")){
                      echo wpimprov_team_calendar(get_the_ID());
