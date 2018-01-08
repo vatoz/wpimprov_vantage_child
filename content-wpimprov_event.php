@@ -127,11 +127,7 @@ if(isset($meta['wpimprov-event-venue-city'])) {
 		?></p><?php
 			}
 		}
- +    ?>
- +    <textarea cols='40' rows='1' name='wpimprov_settings[wpimprov_textarea_disclaimer]'><?php echo $options['wpimprov_textarea_disclaimer'];
-
-
-		<?php do_action('vantage_entry_main_bottom') ?>
+  do_action('vantage_entry_main_bottom') ?>
 
 	</div>
 
