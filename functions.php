@@ -12,9 +12,20 @@ add_action( 'wp_enqueue_scripts', 'wpimprov_vantage_child_enqueue_parent_style',
 // Load translation files from your child theme instead of the parent theme
 function wpimprov_vantage_child_locale() {
     load_child_theme_textdomain( 'vantage', get_stylesheet_directory() . '/languages' );
+    remove_image_size('post-thumbnail');
+    remove_image_size('vantage-thumbnail');
+    remove_image_size('vantage-thumbnail-no-sidebar');
+    set_post_thumbnail_size(800,600,false);
+
+    add_image_size('vantage-thumbnail', 800,600, false);
+    add_image_size('vantage-thumbnail-no-sidebar', 1080,500, false);
+
+	
+   add_image_size('post-thumbnail', 800,600, false);
+
 }
 add_action( 'after_setup_theme', 'wpimprov_vantage_child_locale' );
 
-set_post_thumbnail_size(800,600,false);
-add_image_size('vantage-thumbnail-no-sidebar', 1080,500, false);
-add_image_size('vantage-thumbnail', 800,600, false);
+
+
+
