@@ -7,7 +7,7 @@
  * @license GPL 2.0
  */
 ?>
-	
+
 <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
 
 	<div class="entry-main">
@@ -35,76 +35,79 @@
 		<?php endif; ?>
 		<div class="content-custom"><?php
 		 $meta = get_post_meta( get_the_ID() );
-        
+
         if(isset($meta['wpimprov-event-start-time'])){
-            ?><?php   ?><?php  
-            
+            ?><?php   ?><?php
+
         if(isset($meta['wpimprov-event-end-time'])){
             if (wpimprov_date_dmy($meta['wpimprov-event-start-time'][0])!=wpimprov_date_dmy($meta['wpimprov-event-end-time'][0])){
                 echo __('Start time','wpimprov') ?>: <?php  echo wpimprov_date_nice($meta['wpimprov-event-start-time'][0]);
                 echo "<br>";
-            ?><?php echo __('End time','wpimprov') ?>: <?php  echo wpimprov_date_nice($meta['wpimprov-event-end-time'][0]);  ?><br><?php  
+            ?><?php echo __('End time','wpimprov') ?>: <?php  echo wpimprov_date_nice($meta['wpimprov-event-end-time'][0]);  ?><br><?php
         }else{
             echo __('Event time','wpimprov') ?>: <?php  echo wpimprov_date_nice($meta['wpimprov-event-start-time'][0]);
             echo " - ". wpimprov_date_hours($meta['wpimprov-event-end-time'][0]);
         }
-        
-        
+
+
             }else{
                 echo __('Start time','wpimprov') ?>: <?php  echo wpimprov_date_nice($meta['wpimprov-event-start-time'][0]);
                 echo "<br>";
-                
+
             }
-            
-            
+
+
             echo "<br>";
         }else{
-            
+
         if(isset($meta['wpimprov-event-end-time'])){
-            ?><?php echo __('End time','wpimprov') ?>: <?php  echo wpimprov_date_nice($meta['wpimprov-event-end-time'][0]);  ?><br><?php  
+            ?><?php echo __('End time','wpimprov') ?>: <?php  echo wpimprov_date_nice($meta['wpimprov-event-end-time'][0]);  ?><br><?php
         }
-            
-            
+
+
         }
-        
-        
-        
+
+
+
        if(isset($meta['wpimprov-event-venue']) or isset($meta['wpimprov-event-venue-city']) or isset($meta['wpimprov-event-venue-street']) ){
-            ?><?php echo __('Place','wpimprov') ; ?>: 
+            ?><?php echo __('Place','wpimprov') ; ?>:
 <?php
+ $txtt="";
 if(isset($meta['wpimprov-event-venue'])) {
-    echo esc_html($meta['wpimprov-event-venue'][0]).', ';
+    $txtt.= esc_html($meta['wpimprov-event-venue'][0]).', ';
 }
 if(isset($meta['wpimprov-event-venue-street'])){
-    echo esc_html($meta['wpimprov-event-venue-street'][0]).', ';
+    $txtt.=esc_html($meta['wpimprov-event-venue-street'][0]).', ';
 }
 if(isset($meta['wpimprov-event-venue-city'])) {
 
-    echo esc_html($meta['wpimprov-event-venue-city'][0]);
+    $txtt.= esc_html($meta['wpimprov-event-venue-city'][0]);
 }
-               ?><br><?php  
-        } 
-        
-        
-        
-        if(isset($meta['wpimprov-event-fb'])){
-            ?><?php echo __('Facebook','wpimprov') ?>: <a href="<?php  echo esc_url("https://facebook.com/events/" .$meta['wpimprov-event-fb'][0]);  ?>"><?php  echo esc_html("https://facebook.com/events/" .$meta['wpimprov-event-fb'][0]);  ?></a><br><?php  
+	echo(trim($txtt,", "));
+
+               ?><br><?php
         }
-        
+
+
+
+        if(isset($meta['wpimprov-event-fb'])){
+            ?><?php echo __('Facebook','wpimprov') ?>: <a href="<?php  echo esc_url("https://facebook.com/events/" .$meta['wpimprov-event-fb'][0]);  ?>"><?php  echo esc_html("https://facebook.com/events/" .$meta['wpimprov-event-fb'][0]);  ?></a><br><?php
+        }
+
         if(isset($meta['wpimprov-event-ticket-uri'])){
         	if(strlen($meta['wpimprov-event-ticket-uri'][0])>1){
-            ?><?php echo __('Tickets','wpimprov') ?>: <a href="<?php  echo esc_url($meta['wpimprov-event-ticket-uri'][0]);  ?>"><?php  echo esc_html($meta['wpimprov-event-ticket-uri'][0]);  ?></a><br><?php  
+            ?><?php echo __('Tickets','wpimprov') ?>: <a href="<?php  echo esc_url($meta['wpimprov-event-ticket-uri'][0]);  ?>"><?php  echo esc_html($meta['wpimprov-event-ticket-uri'][0]);  ?></a><br><?php
         }
         }
-        
+
        $tags = wp_get_post_terms($post->ID,"wpimprov_event_team");
        if(count($tags)){
           echo __('Performing','wpimprov').': ';
           foreach($tags as $tag){
-              echo '<a href="'.get_permalink($tag->description).'">'.$tag->name.'</a> ';   
+              echo '<a href="'.get_permalink($tag->description).'">'.$tag->name.'</a> ';
           }
        }
-       
+
 		?>
 		</div>
 		<div class="entry-content">
@@ -114,11 +117,12 @@ if(isset($meta['wpimprov-event-venue-city'])) {
 
 		<?php if( vantage_get_post_categories() && ! is_singular( 'jetpack-testimonial' ) ) : ?>
 			<div class="entry-categories">
-				<?php echo vantage_get_post_categories() ?>
+				<?php// echo vantage_get_post_categories()
+				?>
 			</div>
 		<?php endif; ?>
 
-		<?php 
+		<?php
 		$options=get_option('wpimprov_settings');
 		if(isset($options['wpimprov_textarea_disclaimer'])){
 			if(strlen($options['wpimprov_textarea_disclaimer'])>0){
