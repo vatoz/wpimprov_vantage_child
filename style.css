@@ -126,83 +126,76 @@ a.logo h1 {margin-top: 37px}
 
 /* ============================================================
    Improliga – redesign kalendáře představení
-   s Claude, květen 2026
- 
+   Autor: Claude, květen 2026
    ============================================================ */
- 
+
 /* ── Celý kalendář ── */
 .wpimprov_calendar {
     font-family: inherit;
     margin: 0;
     padding: 0;
 }
- 
+
 /* ── Týden = jeden řádek ── */
-.wpimprov_week {
+.wpimprov_calendar .wpimprov_week {
     display: grid;
     grid-template-columns: repeat(7, minmax(0, 1fr));
     gap: 10px;
     margin-bottom: 10px;
-    float: none !important; /* přebíjí případné starší float */
+    float: none !important;
 }
- 
+
 /* ── Den = jeden sloupec ── */
-.wpimprov_day {
+.wpimprov_calendar .wpimprov_day {
     display: flex;
     flex-direction: column;
     gap: 8px;
     float: none !important;
     width: auto !important;
 }
- 
+
 /* ── Záhlaví dne (den v týdnu + datum) ── */
-.wpimprov_day > h3 {
+.wpimprov_calendar .wpimprov_day > h3 {
     display: flex;
     flex-direction: column;
     gap: 1px;
     padding: 6px 2px 8px;
     border-bottom: 1.5px solid #e5e5e5;
     margin: 0;
-    font-size: inherit;
-    font-weight: normal;
+    font-size: 20px;
+    font-weight: 600;
+    color: #222;
     line-height: 1;
 }
- 
+
 /* Název dne (Pondělí, Úterý…) */
-.wpimprov_day > h3 .dow {
+.wpimprov_calendar .wpimprov_day > h3 .dow {
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.07em;
     color: #999;
     display: block;
 }
- 
-/* Číslo data */
-.wpimprov_day > h3 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #222;
-}
- 
+
 /* ── Karta jednoho představení ── */
-.wpimprov_event {
+.wpimprov_calendar .wpimprov_event {
     background: #fff;
     border: 1px solid #ebebeb;
-    border-left: 3px solid #c0392b; /* červená Improliga */
+    border-left: 3px solid #c0392b;
     border-radius: 6px;
     padding: 9px 10px 8px;
     transition: border-color 0.15s, box-shadow 0.15s;
     overflow: hidden;
 }
- 
-.wpimprov_event:hover {
+
+.wpimprov_calendar .wpimprov_event:hover {
     border-color: #bbb;
     border-left-color: #922b21;
     box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
- 
+
 /* Název představení */
-.wpimprov_event h3 {
+.wpimprov_calendar .wpimprov_event h3 {
     font-size: 12px;
     font-weight: 600;
     line-height: 1.4;
@@ -210,23 +203,18 @@ a.logo h1 {margin-top: 37px}
     padding: 0;
     border: none;
 }
- 
-.wpimprov_event h3 a {
+
+.wpimprov_calendar .wpimprov_event h3 a {
     color: #222;
     text-decoration: none;
 }
- 
-.wpimprov_event h3 a:hover {
+
+.wpimprov_calendar .wpimprov_event h3 a:hover {
     color: #c0392b;
 }
- 
-/* Čas a místo – prostý text generovaný pluginem */
-.wpimprov_event br + br,
-.wpimprov_event br:first-of-type {
-    display: none;
-}
- 
-.wpimprov_time {
+
+/* Čas */
+.wpimprov_calendar .wpimprov_event .wpimprov_time {
     display: block;
     font-size: 11px;
     font-weight: 600;
@@ -234,7 +222,8 @@ a.logo h1 {margin-top: 37px}
     margin-bottom: 2px;
 }
 
-.wpimprov_venue {
+/* Místo */
+.wpimprov_calendar .wpimprov_event .wpimprov_venue {
     display: block;
     font-size: 11px;
     color: #777;
@@ -242,82 +231,72 @@ a.logo h1 {margin-top: 37px}
     overflow: hidden;
     text-overflow: ellipsis;
 }
-/* Tučný čas */
-.wpimprov_event time,
-.wpimprov_event .wpimprov_time {
-    color: #c0392b;
-    font-weight: 600;
-    font-size: 11px;
+
+/* Obrázek v kartě */
+.wpimprov_calendar .wpimprov_event img {
+    display: none;
 }
- 
-/* Obrázek v kartě – schovat nebo zobrazit malý thumb */
-.wpimprov_event img {
-    display: none; /* karty jsou malé; pokud chceš thumb, změň na block a nastav max-width */
-}
- 
+
 /* ── Prázdný den – méně výrazný ── */
-.wpimprov_day:not(:has(.wpimprov_event)) > h3 {
+.wpimprov_calendar .wpimprov_day:not(:has(.wpimprov_event)) > h3 {
     color: #bbb;
     border-bottom-color: #f0f0f0;
 }
- 
-.wpimprov_day:not(:has(.wpimprov_event)) > h3 .dow {
+
+.wpimprov_calendar .wpimprov_day:not(:has(.wpimprov_event)) > h3 .dow {
     color: #ccc;
 }
- 
+
 /* ── Po kalendáři (clearfix) ── */
 .wpimprov_after_calendar {
     clear: both;
 }
- 
+
 /* ══════════════════════════════════════════════════════
    RESPONZIVITA
    ══════════════════════════════════════════════════════ */
- 
-/* Tablet: 4 sloupce */
+
 @media (max-width: 900px) {
-    .wpimprov_week {
+    .wpimprov_calendar .wpimprov_week {
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
- 
-/* Mobil: 2 sloupce, jen dny s představeními */
+
 @media (max-width: 600px) {
-    .wpimprov_week {
+    .wpimprov_calendar .wpimprov_week {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
- 
-    /* Na mobilu skryj prázdné dny – přehlednější */
-    .wpimprov_day:not(:has(.wpimprov_event)) {
+
+    .wpimprov_calendar .wpimprov_day:not(:has(.wpimprov_event)) {
         display: none;
     }
 }
- 
+
 /* ══════════════════════════════════════════════════════
    VOLITELNÉ: tmavý režim
-   (funguje pokud šablona / OS má prefers-color-scheme)
    ══════════════════════════════════════════════════════ */
+
 @media (prefers-color-scheme: dark) {
-    .wpimprov_event {
+    .wpimprov_calendar .wpimprov_event {
         background: #1e1e1e;
         border-color: #333;
         border-left-color: #e74c3c;
     }
- 
-    .wpimprov_event h3 a {
+
+    .wpimprov_calendar .wpimprov_event h3 a {
         color: #eee;
     }
- 
-    .wpimprov_day > h3 {
+
+    .wpimprov_calendar .wpimprov_day > h3 {
         color: #ddd;
         border-bottom-color: #333;
     }
- 
-    .wpimprov_day > h3 .dow {
+
+    .wpimprov_calendar .wpimprov_day > h3 .dow {
         color: #666;
     }
- 
-    .wpimprov_event > *:not(h3):not(img) {
+
+    .wpimprov_calendar .wpimprov_event .wpimprov_venue {
         color: #aaa;
     }
 }
