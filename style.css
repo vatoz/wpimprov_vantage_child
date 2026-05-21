@@ -226,14 +226,22 @@ a.logo h1 {margin-top: 37px}
     display: none;
 }
  
-/* Čas (první textový řádek za h3) */
-.wpimprov_event > *:not(h3):not(img) {
-    font-size: 11px;
-    color: #555;
+.wpimprov_time {
     display: block;
-    line-height: 1.5;
+    font-size: 11px;
+    font-weight: 600;
+    color: #c0392b;
+    margin-bottom: 2px;
 }
- 
+
+.wpimprov_venue {
+    display: block;
+    font-size: 11px;
+    color: #777;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 /* Tučný čas */
 .wpimprov_event time,
 .wpimprov_event .wpimprov_time {
